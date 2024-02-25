@@ -3,8 +3,24 @@ import Grid from '@mui/material/Grid';
 import {BasicCard} from './components/BasicCard'
 import './App.css'
 import Typography from '@mui/material/Typography';
+import { createClient } from "@supabase/supabase-js";
+import { useEffect } from 'react';
+
+const supabase = createClient(
+  import.meta.env.VITE_PUBLIC_SUPABASE_URL,
+  import.meta.env.VITE_PUBLIC_SUPABASE_ANON_KEY
+);
 
 function App() {
+  useEffect(() => {
+    getCountries();
+  }, []);
+
+  async function getCountries() {
+    const { data, error } = await supabase.from("posts").select('*');
+    console.log(data, error);
+  }
+
   return (
     <>
       <div>
