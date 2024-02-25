@@ -1,0 +1,6 @@
+"uri","did","subject_uri","created_at"
+"at://did:plc:test_liker1/app.bsky.feed.like/test_like1","did:plc:test_liker1","at://did:plc:test_poster/app.bsky.feed.post/test_post","2024-02-23T05:48:34.099Z"
+"at://did:plc:test_liker2/app.bsky.feed.like/test_like2","did:plc:test_liker2","at://did:plc:test_poster/app.bsky.feed.post/test_post","2024-02-24T06:48:34.099Z"
+"at://did:plc:test_liker3/app.bsky.feed.like/test_like3","did:plc:test_liker3","at://did:plc:test_poster/app.bsky.feed.post/test_post","2024-02-25T07:48:34.099Z"
+"at://did:plc:test_liker4/app.bsky.feed.like/test_like4","did:plc:test_liker4","at://did:plc:test_poster/app.bsky.feed.post/test_post","2024-02-25T08:48:34.099Z"
+"at://did:plc:test_liker5/app.bsky.feed.like/test_like5","did:plc:test_liker5","at://did:plc:test_poster/app.bsky.feed.post/test_post","2024-02-25T09:48:34.099Z"
