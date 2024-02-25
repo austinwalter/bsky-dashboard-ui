@@ -9,6 +9,9 @@ reposts = pd.read_csv('demo_csvs/demo_reposts.csv')
 
 
 class PostAPI:
+    def get_text(uri):
+        return posts.loc[posts['uri'] == uri]["text"].values[0]
+    
     def get_creation_time(uri):
         return pd.to_datetime(posts.loc[posts['uri'] == uri]["created_at"].values[0])
     
@@ -60,6 +63,7 @@ data = {}
 
 # Calculate the values and store them in the dictionary
 data['uri'] = test_uri
+data['text'] =  PostAPI.get_text(uri=test_uri)
 data['likes_since'] = PostAPI.get_likes_since(uri=test_uri, time=time_24_hours_ago)
 data['replies_since'] = PostAPI.get_replies_since(uri=test_uri, time=time_24_hours_ago)
 data['reposts_since'] = PostAPI.get_reposts_since(uri=test_uri, time=time_24_hours_ago)
