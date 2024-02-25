@@ -1,17 +1,18 @@
-import bskyLogo from './assets/bsky.svg'
+import bskyLogo from './assets/beacon.svg'
 import Grid from '@mui/material/Grid';
 import {BasicCard} from './components/BasicCard'
 import './App.css'
+import Typography from '@mui/material/Typography';
 
 function App() {
   return (
     <>
       <div>
-        <a href="https://react.dev" target="_blank">
-          <img src={bskyLogo} className="logo bsky" alt="BlueSky logo" />
-        </a>
+        <img src={bskyLogo} alt="BlueSky logo" />
+        <Typography>
+          Beacon
+        </Typography>
       </div>
-      <h1>Blue Sky Beacon</h1>
       <div className="card">
       <Grid container spacing={2}>
         <Grid item xs={6}>
@@ -28,9 +29,6 @@ function App() {
         </Grid>
       </Grid>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
