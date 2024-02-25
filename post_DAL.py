@@ -70,14 +70,14 @@ data['reposts_since'] = PostAPI.get_reposts_since(uri=test_uri, time=time_24_hou
 poster_did = PostAPI.get_poster(uri=test_uri)
 data['follows_since'] = UserAPI.get_follows_since(subject=poster_did, time=time_24_hours_ago)
 
-# # Write the dictionary into a text file
-# with open('data.txt', 'w') as file:
-#     file.write(f"uri: {test_uri}\n")
-#     for key, value in data.items():
-#         file.write(f"{key}: {value}\n")
-
 # Convert the dictionary into a DataFrame
 df = pd.DataFrame.from_dict(data, orient='index', columns=['Value'])
 
 # Write the DataFrame into a CSV file
 df.to_csv('data.csv', index_label='Metric')
+
+import json
+
+# Write the dictionary into a JSON file
+with open('post_data.json', 'w') as json_file:
+    json.dump(data, json_file, indent=4)

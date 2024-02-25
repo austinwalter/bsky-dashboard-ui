@@ -1,0 +1,11 @@
+{
+    "Keyword": "basketball",
+    "Post URIs": [
+        "at://did:plc:test_poster3/app.bsky.feed.post/test_post",
+        "at://did:plc:basketball_fan/app.bsky.feed.post/test_bball_post"
+    ],
+    "Num Posts": 2,
+    "Total Likes": 8,
+    "Num Authors": 2,
+    "Follower Gain (24 hours)": 4
+}
