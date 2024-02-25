@@ -7,5 +7,7 @@
     "Num Posts": 2,
     "Total Likes": 8,
     "Num Authors": 2,
-    "Follower Gain (24 hours)": 4
+    "Follower Gain (24 hours)": 4,
+    "Top Post URI": "at://did:plc:basketball_fan/app.bsky.feed.post/test_bball_post",
+    "Top Post Text": "i like basketball."
 }

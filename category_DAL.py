@@ -16,6 +16,14 @@ class CategoryDAL():
             total_likes += post_DAL.PostAPI.get_all_likes(uri=uri)
         return total_likes
     
+    def top_post_by_likes(uris):
+        uri_likes = []
+        for uri in uris:
+            uri_likes.append((uri, post_DAL.PostAPI.get_all_likes(uri=uri)))
+        sorted_uri_likes = sorted(uri_likes, key=lambda x: x[1], reverse=True)
+        return sorted_uri_likes[0]
+
+    
     def get_authors_of_all_posts(uris):
         authors = set()
         for uri in uris:
@@ -30,6 +38,7 @@ class CategoryDAL():
         for did in dids:
             follower_gain += post_DAL.UserAPI.get_follows_since(subject=did, time=time_24_hours_ago)
         return follower_gain
+    
 
 # print('keyword: \'basketball\'')
 # print('post uris', CategoryDAL.get_posts_with_keyword('basketball'))
@@ -50,6 +59,8 @@ total_likes = CategoryDAL.get_likes_of_all_posts(post_uris)
 author_dids = CategoryDAL.get_authors_of_all_posts(post_uris)
 num_authors = len(author_dids)
 follower_gain_24_hours = CategoryDAL.get_authors_follower_gain_24_hours(dids=author_dids)
+top_post_uri = CategoryDAL.top_post_by_likes(uris=post_uris)[0]
+top_post_text = post_DAL.PostAPI.get_text(top_post_uri)
 
 # Create a dictionary to store the values
 data = {
@@ -58,7 +69,9 @@ data = {
     'Num Posts': num_posts,
     'Total Likes': total_likes,
     'Num Authors': num_authors,
-    'Follower Gain (24 hours)': follower_gain_24_hours
+    'Follower Gain (24 hours)': follower_gain_24_hours,
+    'Top Post URI': top_post_uri,
+    'Top Post Text': top_post_text
 }
 
 # Write the dictionary into a JSON file
