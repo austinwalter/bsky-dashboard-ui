@@ -1,29 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import bskyLogo from './assets/bsky.svg'
+import Grid from '@mui/material/Grid';
+import {BasicCard} from './components/BasicCard'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
         <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
+          <img src={bskyLogo} className="logo bsky" alt="BlueSky logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
+      <h1>Blue Sky Beacon</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      <Grid container spacing={2}>
+        <Grid item xs={6}>
+          <BasicCard name='Post Authors' count={28889}/>
+        </Grid>
+        <Grid item xs={6}>
+          <BasicCard name='Mean Post Count' count={32112}/>
+        </Grid>
+        <Grid item xs={6}>
+          <BasicCard name='Users' count={28889}/>
+        </Grid>
+        <Grid item xs={6}>
+          <BasicCard name='Views' count={348988}/>
+        </Grid>
+      </Grid>
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
