@@ -59,14 +59,21 @@ time_24_hours_ago = current_time - pd.Timedelta(hours=24)
 data = {}
 
 # Calculate the values and store them in the dictionary
+data['uri'] = test_uri
 data['likes_since'] = PostAPI.get_likes_since(uri=test_uri, time=time_24_hours_ago)
 data['replies_since'] = PostAPI.get_replies_since(uri=test_uri, time=time_24_hours_ago)
 data['reposts_since'] = PostAPI.get_reposts_since(uri=test_uri, time=time_24_hours_ago)
 poster_did = PostAPI.get_poster(uri=test_uri)
 data['follows_since'] = UserAPI.get_follows_since(subject=poster_did, time=time_24_hours_ago)
 
-# Write the dictionary into a text file
-with open('data.txt', 'w') as file:
-    file.write(f"uri: {test_uri}\n")
-    for key, value in data.items():
-        file.write(f"{key}: {value}\n")
+# # Write the dictionary into a text file
+# with open('data.txt', 'w') as file:
+#     file.write(f"uri: {test_uri}\n")
+#     for key, value in data.items():
+#         file.write(f"{key}: {value}\n")
+
+# Convert the dictionary into a DataFrame
+df = pd.DataFrame.from_dict(data, orient='index', columns=['Value'])
+
+# Write the DataFrame into a CSV file
+df.to_csv('data.csv', index_label='Metric')
