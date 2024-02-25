@@ -2,10 +2,10 @@ import pandas as pd
 from datetime import datetime
 
 
-posts = pd.read_csv('demo_posts.csv')
-likes = pd.read_csv('demo_likes.csv')
-follows = pd.read_csv('demo_followers.csv')
-reposts = pd.read_csv('demo_reposts.csv')
+posts = pd.read_csv('demo_csvs/demo_posts.csv')
+likes = pd.read_csv('demo_csvs/demo_likes.csv')
+follows = pd.read_csv('demo_csvs/demo_followers.csv')
+reposts = pd.read_csv('demo_csvs/demo_reposts.csv')
 
 
 class PostAPI:
